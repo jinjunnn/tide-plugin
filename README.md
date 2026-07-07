@@ -90,10 +90,14 @@ http_headers = { "Authorization" = "Bearer tk_xxxxxxxx" }
 ## 持仓怎么给
 
 - **本地档(默认,隐私最优)**:`~/.tide/portfolio.md`,人话表格(代码/成本/仓位/备注),`/tide:start` 会帮你建模板;持仓不上云。
-- **云端档**:与 iOS App 同一账户的自选同步(`get_watchlist` / `set_watchlist`;上线节奏见工具返回提示)。
+- **云端档**:与 iOS App 同一账户的自选同步(`get_watchlist` / `set_watchlist`,已上线;iPhone 加自选这里立即可见)。
 
 ## 常见问题
 
 - **401 / invalid_key**:检查 `TIDE_API_KEY` 是否配置、key 是否复制完整;portal 可重新签发。
 - **tier_insufficient**:该工具/方法论需要更高订阅档,错误里带 portal 链接。
 - **degraded: true**:上游暂不可达时返回容灾缓存,响应里有数据时点——旧数据,但可用。
+
+## 贡献
+
+本仓是发行镜像(由源仓单向同步),**不接受直接 PR**——issue 欢迎,改动请在 issue 里描述,我们会在源仓落地后同步过来。
