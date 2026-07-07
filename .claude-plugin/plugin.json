@@ -1,0 +1,5 @@
+{
+  "name": "tide",
+  "version": "0.1.0",
+  "description": "A 股结构化分析:产业链/概念/题材三层知识图谱 + 事件与历史先例 + 日更盘前盘后分析产物。你的 LLM 负责推理,tide 负责事实与结构。需要 API key(portal 签发)。"
+}
