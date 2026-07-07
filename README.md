@@ -32,6 +32,8 @@ url = "https://mcp.tidelabs.click/mcp"
 http_headers = { "Authorization" = "Bearer tk_xxxxxxxx" }
 ```
 
+> 首次调用 tide 工具时 Codex 会弹出批准提示,允许即可(非交互模式会自动拒绝,属 Codex 审批机制,非服务故障)。
+
 ### Cursor
 
 `.cursor/mcp.json`(项目级)或 `~/.cursor/mcp.json`(全局):
