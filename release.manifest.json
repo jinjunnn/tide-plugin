@@ -1,0 +1,32 @@
+{
+  "$comment": "发行单一真相源:版本 / 工具计数 / 工具清单(名称+最低档位+一句话)/ 安装命令 / 公开仓地址。plugin README 的生成段由 scripts/gen-plugin-readme.mjs 从本文件产出;CI 校验 worker TOOLS[] 与本清单逐一对账,手改任何一侧不同步都会红。",
+  "version": "0.1.0",
+  "tool_count": 23,
+  "marketplace_cmd": "claude plugin marketplace add tide && claude plugin install tide",
+  "repo_url": "https://github.com/jinjunnn/tide-plugin",
+  "tools": [
+    { "name": "search_topic", "tier": "free", "title": "把板块/题材/产业链名解析成图谱 cid(一切分析的入口)" },
+    { "name": "get_topic", "tier": "free", "title": "单个 topic 全貌:相位/结构/成分广度/近窗催化(产业链自动切链视图)" },
+    { "name": "get_topic_members", "tier": "free", "title": "topic 成分股列表(内建纪律过滤,蹭概念不混入)" },
+    { "name": "get_topic_events", "tier": "free", "title": "topic 催化事件列表 / 单事件详情" },
+    { "name": "get_stock", "tier": "basic", "title": "个股结构档案卡 + 三层归属 + 客供竞争邻域" },
+    { "name": "get_stock_events", "tier": "basic", "title": "个股近窗直接关联事件反查" },
+    { "name": "get_chain_alpha", "tier": "pro", "title": "产业链门控下钻 + 三重交叉选股" },
+    { "name": "impact_map", "tier": "pro", "title": "假设事件的受益/受损暴露面预览" },
+    { "name": "get_daily_report", "tier": "basic", "title": "日更报告:盘前三件套/宏观/涨停簇/龙虎榜/竞价验证/题材" },
+    { "name": "get_quote_kline", "tier": "free", "title": "行情快照与日 K(独立低频限额)" },
+    { "name": "list_topics", "tier": "free", "title": "topic 目录枚举 / 活跃题材相位扫描" },
+    { "name": "aggregate", "tier": "free", "title": "白名单聚合仪表盘(相位分布/确信分布/事件频次)" },
+    { "name": "get_sector_pool", "tier": "basic", "title": "板块强弱截面两池(强势候选/走弱观察)" },
+    { "name": "get_concept_state", "tier": "basic", "title": "单板块状态机相位与四象限现值" },
+    { "name": "news_context", "tier": "basic", "title": "已入库新闻簇上下文(标题+摘要+热度,指针形态)" },
+    { "name": "find_similar_events", "tier": "pro", "title": "历史先例语义检索(上次类似事件后来怎么走)" },
+    { "name": "changes_feed", "tier": "pro", "title": "增量变更流(相位翻转/新事件/新绑定,cursor 续传)" },
+    { "name": "get_watchlist", "tier": "free", "title": "读云端自选/持仓列表(与 iOS App 同一账户同步)" },
+    { "name": "set_watchlist", "tier": "free", "title": "写云端自选(replace/add/remove,与 iOS 同步)" },
+    { "name": "find_disrupts_pairs", "tier": "pro", "title": "链级替代/颠覆关系全图扫描" },
+    { "name": "search_news", "tier": "pro", "title": "即时定向新闻检索(外部检索后端,按次计费)" },
+    { "name": "get_sector_verdicts", "tier": "pro", "title": "盘中板块裁决流(BUY/WAIT/SKIP + 四问叙事)" },
+    { "name": "get_methodology", "tier": "free", "title": "按订阅档位取分析方法论全文(服务端下发)" }
+  ]
+}

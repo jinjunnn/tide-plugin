@@ -6,14 +6,16 @@
 
 ## 安装(Claude Code,三行)
 
+<!-- gen:install:begin -->
 ```bash
 # 1. 到 portal(https://graph.tidelabs.click → 侧栏「API 接入」)注册并签发 API key(tk_ 开头)
 export TIDE_API_KEY=tk_xxxxxxxx   # 写进你的 shell profile
-# 2. 安装 plugin
+# 2. 安装 plugin(v0.1.0)
 claude plugin marketplace add tide && claude plugin install tide
 # 3. 上手自检(验 key → 示例问题 → 建持仓档)
 /tide:start
 ```
+<!-- gen:install:end -->
 
 > 服务地址:`https://mcp.tidelabs.click/mcp`(备用:`https://tide-mcp.jinjunnm.workers.dev/mcp`,
 > 两者同一服务;正常情况用正式域名即可)。
@@ -80,7 +82,41 @@ http_headers = { "Authorization" = "Bearer tk_xxxxxxxx" }
 
 ## 里面有什么
 
-- **23 个 MCP tools**:图谱查询(三层 topic / 成分 / 事件 / 个股档案 / 产业链门控与选股 / 替代关系 / 影响面 / 历史先例)+ 日更报告(盘前三件套 / 宏观 / 涨停簇 / 龙虎榜 / 竞价验证)+ 板块强弱池 / 盘中裁决 + 新闻簇与定向检索 + 自选/持仓 + 方法论下发。
+<!-- gen:tools:begin -->
+- **23 个 MCP tools**(最低档位分布:free 10 / basic 6 / pro 7;清单同源 `release.manifest.json`):
+  图谱查询(三层 topic / 成分 / 事件 / 个股档案 / 产业链门控与选股 / 替代关系 / 影响面 / 历史先例)
+  + 日更报告 + 板块强弱池与盘中裁决 + 新闻簇与定向检索 + 行情 + 自选/持仓 + 方法论下发。
+
+  <details><summary>完整工具清单(点开)</summary>
+
+  | tool | 最低档位 | 干什么 |
+  |---|---|---|
+  | `search_topic` | free | 把板块/题材/产业链名解析成图谱 cid(一切分析的入口) |
+  | `get_topic` | free | 单个 topic 全貌:相位/结构/成分广度/近窗催化(产业链自动切链视图) |
+  | `get_topic_members` | free | topic 成分股列表(内建纪律过滤,蹭概念不混入) |
+  | `get_topic_events` | free | topic 催化事件列表 / 单事件详情 |
+  | `get_stock` | basic | 个股结构档案卡 + 三层归属 + 客供竞争邻域 |
+  | `get_stock_events` | basic | 个股近窗直接关联事件反查 |
+  | `get_chain_alpha` | pro | 产业链门控下钻 + 三重交叉选股 |
+  | `impact_map` | pro | 假设事件的受益/受损暴露面预览 |
+  | `get_daily_report` | basic | 日更报告:盘前三件套/宏观/涨停簇/龙虎榜/竞价验证/题材 |
+  | `get_quote_kline` | free | 行情快照与日 K(独立低频限额) |
+  | `list_topics` | free | topic 目录枚举 / 活跃题材相位扫描 |
+  | `aggregate` | free | 白名单聚合仪表盘(相位分布/确信分布/事件频次) |
+  | `get_sector_pool` | basic | 板块强弱截面两池(强势候选/走弱观察) |
+  | `get_concept_state` | basic | 单板块状态机相位与四象限现值 |
+  | `news_context` | basic | 已入库新闻簇上下文(标题+摘要+热度,指针形态) |
+  | `find_similar_events` | pro | 历史先例语义检索(上次类似事件后来怎么走) |
+  | `changes_feed` | pro | 增量变更流(相位翻转/新事件/新绑定,cursor 续传) |
+  | `get_watchlist` | free | 读云端自选/持仓列表(与 iOS App 同一账户同步) |
+  | `set_watchlist` | free | 写云端自选(replace/add/remove,与 iOS 同步) |
+  | `find_disrupts_pairs` | pro | 链级替代/颠覆关系全图扫描 |
+  | `search_news` | pro | 即时定向新闻检索(外部检索后端,按次计费) |
+  | `get_sector_verdicts` | pro | 盘中板块裁决流(BUY/WAIT/SKIP + 四问叙事) |
+  | `get_methodology` | free | 按订阅档位取分析方法论全文(服务端下发) |
+
+  </details>
+<!-- gen:tools:end -->
 - **10 个 skills**:`tide-intro` 公共底座(工具地图 / 术语字典 / 人话翻译 / 免责与时效)+ 9 个场景分析 skill(持仓体检 / 盘前 / 个股 / 题材 / 产业链 / 事件 / 复盘 / 避雷 / 增量追踪)。深度方法论按订阅档位从服务端下发(`get_methodology`),迭代无需更新 plugin。
 - **9 个 commands**:`/tide:start` 上手自检 + 八大场景薄入口。
 - **1 个 agent**:`a-share-analyst` 只读分析子代理,适合「把持仓 12 只全部体检一遍」式长任务 fan-out。
@@ -103,3 +139,7 @@ http_headers = { "Authorization" = "Bearer tk_xxxxxxxx" }
 ## 贡献
 
 本仓是发行镜像(由源仓单向同步),**不接受直接 PR**——issue 欢迎,改动请在 issue 里描述,我们会在源仓落地后同步过来。
+
+<!-- gen:repo:begin -->
+发行镜像仓:https://github.com/jinjunnn/tide-plugin(issue 请提在该仓;本 README 由源仓脚本生成,直接 PR 会被同步覆盖)。
+<!-- gen:repo:end -->
